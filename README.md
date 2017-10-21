@@ -13,7 +13,6 @@ Getting started
 To get started just install the [NuGet package](https://www.nuget.org/packages/HiRezApi.Paladins).
 If you do not have an auth key [request access](https://fs12.formsite.com/HiRez/form48/secure_index.html) to the HiRez API.
 
-
 Usage
 ===============
 
@@ -38,8 +37,10 @@ Example
 ===============
 Browse into [Examples](src/Examples/HiRezApi.Examples.App/Program.cs) or [PaladinsApiTests](src/HiRezApi.Tests/PaladinsApiTests.cs)
 
-## Compiling
+Compiling
+===============
 In order to compile the project, you need at least [Visual Studio 2017 (15.3)](https://www.visualstudio.com/downloads/) with C# 7.1 language features.
 
-## License
+License
+===============
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
