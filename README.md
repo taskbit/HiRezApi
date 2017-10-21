@@ -36,7 +36,7 @@ client.SetRetryPolicy(retryPolicy);
 
 Example
 ===============
-Browse into [Examples](Examples/HiRezApi.Examples.App/Program.cs) or [PaladinsApiTests](src/HiRezApi.Tests/PaladinsApiTests.cs)
+Browse into [Examples](src/Examples/HiRezApi.Examples.App/Program.cs) or [PaladinsApiTests](src/HiRezApi.Tests/PaladinsApiTests.cs)
 
 ## Compiling
 In order to compile the project, you need at least [Visual Studio 2017 (15.3)](https://www.visualstudio.com/downloads/) with C# 7.1 language features.
