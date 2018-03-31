@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using HiRezApi.Common;
@@ -9,9 +10,9 @@
     using Microsoft.Rest.TransientFaultHandling;
     using NUnit.Framework;
 
-    [TestFixture(Platform.Pc, 273921, 2205, 176845080)]
-    [TestFixture(Platform.Xbox, 1062067, 2205, 19400671)]
-    [TestFixture(Platform.Ps4, 3364709, 2205, 41667851)]
+    [TestFixture(Platform.Pc, 273921, 2205, 226145337)]
+    [TestFixture(Platform.Xbox, 1062067, 2205, 29280439)]
+    [TestFixture(Platform.Ps4, 3364709, 2205, 66763093)]
     public class PaladinsApiTests
     {
         // TODO: This will break if the provided match is older than 30 days (HiRez API restriction)
@@ -34,7 +35,11 @@
         public void OneTimeSetUp()
         {
             var retryPolicy = new RetryPolicy<HiRezApiRetryStrategy>(new ExponentialBackoffRetryStrategy());
-            var credentials = new HiRezApiCredentials("YourDeveloperId", "YourAuthKey");
+            var timestampProvider = new DateTimeUtcTimeStampProvider();
+            var fileSessionRepository = new JsonFileSessionRepository(Environment.CurrentDirectory, timestampProvider); // Session storage is optional
+            var credentials = new HiRezApiCredentials("YourDeveloperId", "YourAuthKey", timestampProvider,
+                new DefaultSessionProvider(timestampProvider, fileSessionRepository));
+
             this._client = new PaladinsApiClient(this._platform, credentials);
             this._client.SetRetryPolicy(retryPolicy);
         }

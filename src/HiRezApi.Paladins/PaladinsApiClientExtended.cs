@@ -11,6 +11,8 @@
         public PaladinsApiClient(Platform platform, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers)
             : this(credentials, rootHandler, handlers)
         {
+            this.Platform = platform;
+
             if (platform == Platform.Pc)
                 this.BaseUri = new Uri("http://api.paladins.com/paladinsapi.svc");
             else if (platform == Platform.Xbox)
@@ -25,6 +27,8 @@
             : this(platform, credentials, null, handlers)
         {
         }
+
+        public Platform Platform { get; }
 
         partial void CustomInitialize()
         {

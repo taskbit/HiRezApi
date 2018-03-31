@@ -1,24 +1,37 @@
 ﻿namespace HiRezApi.Common
 {
     using System;
+    using Newtonsoft.Json;
 
     public sealed class HiRezApiSession : IEquatable<HiRezApiSession>
     {
-        private readonly ITimeStampProvider _timeStampProvider;
-
-        internal HiRezApiSession(DateTime createdAt, string sessionId, ITimeStampProvider timeStampProvider)
+        internal HiRezApiSession(DateTime createdAt, string sessionId, Platform platform, ITimeStampProvider timeStampProvider)
         {
+            this.Platform = platform;
             this.CreatedAt = createdAt;
             this.SessionId = sessionId;
-            this._timeStampProvider = timeStampProvider;
+            this.TimeStampProvider = timeStampProvider ?? new DateTimeUtcTimeStampProvider();
         }
 
-        public DateTime CreatedAt { get; }
+        internal HiRezApiSession()
+        {
+        }
 
+        [JsonProperty]
+        public DateTime CreatedAt { get; private set; }
+
+        [JsonIgnore]
         public bool IsValid => !string.IsNullOrEmpty(this.SessionId)
-                               && this.CreatedAt.AddMinutes(Constants.SESSION_EXPIRATION_TIME_MINUTES) > this._timeStampProvider.ProvideTime();
+                               && this.CreatedAt.AddMinutes(Constants.SESSION_EXPIRATION_TIME_MINUTES) > this.TimeStampProvider.ProvideTime();
 
-        public string SessionId { get; }
+        [JsonProperty]
+        public Platform Platform { get; private set; }
+
+        [JsonProperty]
+        public string SessionId { get; private set; }
+
+        [JsonIgnore]
+        public ITimeStampProvider TimeStampProvider { get; set; }
 
         public bool Equals(HiRezApiSession other)
         {

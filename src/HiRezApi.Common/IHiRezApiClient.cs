@@ -16,6 +16,8 @@
 
         JsonSerializerSettings DeserializationSettings { get; }
 
+        Platform Platform { get; }
+
         JsonSerializerSettings SerializationSettings { get; }
 
         Task<HttpOperationResponse<Session>> CreateSessionWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null,

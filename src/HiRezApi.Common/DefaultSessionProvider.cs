@@ -13,14 +13,15 @@
         // Ensure that the request to create a session is thread-safe
         // If a session expires this will prevent multiple parallel requests to createsession
         private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1);
+        private readonly ISessionRepository _sessionRepository;
 
         private readonly ITimeStampProvider _timeStampProvider;
         private IHiRezApiClient _apiClient;
-        private HiRezApiSession _currentSession;
 
-        public DefaultSessionProvider(ITimeStampProvider timeStampProvider)
+        public DefaultSessionProvider(ITimeStampProvider timeStampProvider, ISessionRepository sessionRepository = null)
         {
             this._timeStampProvider = timeStampProvider;
+            this._sessionRepository = sessionRepository ?? new InMemorySessionRepository();
         }
 
         public virtual async Task<HiRezApiSession> AcquireAsync()
@@ -28,8 +29,14 @@
             await this._semaphore.WaitAsync();
             try
             {
-                if (this._currentSession?.IsValid == true) return this._currentSession;
-                return this._currentSession = await this.TryFetchNewSessionAsync();
+                HiRezApiSession existingSession = await this._sessionRepository.GetAsync(this._apiClient.Platform);
+                // Session needs to be valid and is platform specific
+                if (existingSession?.IsValid == true && this._apiClient.Platform == existingSession.Platform) return existingSession;
+
+                HiRezApiSession newSession = await this.TryFetchNewSessionAsync();
+                await this._sessionRepository.SetAsync(newSession);
+
+                return newSession;
             }
             finally
             {
@@ -42,7 +49,7 @@
             await this._semaphore.WaitAsync();
             try
             {
-                this._currentSession = null;
+                await this._sessionRepository.RemoveAsync(this._apiClient.Platform);
             }
             finally
             {
@@ -84,18 +91,18 @@
                 if (string.IsNullOrEmpty(sessionResponse.Body.SessionId))
                     throw new SessionException("Session is missing from response.");
 
-                if (!sessionResponse.Body.Timestamp.TryParseApiDate(out var sessionTimeStamp))
+                if (!sessionResponse.Body.Timestamp.TryParseApiDate(out DateTime sessionTimeStamp))
                     throw new SessionException("Could not validate timestamp.");
 
                 // If a request reaches the API when the session expired we'll get an error
                 // to prevent "most" of these issues we'll expire the session on the client a little bit earlier
                 sessionTimeStamp = sessionTimeStamp.AddSeconds(-5);
 
-                return new HiRezApiSession(sessionTimeStamp, sessionResponse.Body.SessionId, this._timeStampProvider);
+                return new HiRezApiSession(sessionTimeStamp, sessionResponse.Body.SessionId, this._apiClient.Platform, this._timeStampProvider);
             }
             catch (Exception ex) when (ex is ErrorModelException || ex is HttpOperationException)
             {
-                var response = (ex as ErrorModelException)?.Response ?? (ex as HttpOperationException)?.Response;
+                HttpResponseMessageWrapper response = (ex as ErrorModelException)?.Response ?? (ex as HttpOperationException)?.Response;
 
                 // Observings indicate that a 404 response can occur when the API is "down" (probably due to deployment errors)
                 if (response?.StatusCode == HttpStatusCode.NotFound)

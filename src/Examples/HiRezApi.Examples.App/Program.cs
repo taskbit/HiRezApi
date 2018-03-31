@@ -2,31 +2,16 @@
 {
     using System;
     using System.Diagnostics;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using HiRezApi.Common;
+    using HiRezApi.Common.Models;
     using HiRezApi.Paladins;
     using Microsoft.Rest.TransientFaultHandling;
 
     internal class Program
     {
-        private static void Main()
-        {
-            Console.WriteLine("Executing...");
-
-            var retryPolicy = new RetryPolicy<HiRezApiRetryStrategy>(new ExponentialBackoffRetryStrategy());
-            var credentials = new HiRezApiCredentials("YourDeveloperId", "YourAuthKey");
-            var client = new PaladinsApiClient(Platform.Pc, credentials);
-            client.SetRetryPolicy(retryPolicy);
-
-            ExecutePaladinsApiDataStats(client).GetAwaiter().GetResult();
-            ExecutePaladinsApiQueuedMatches(client).GetAwaiter().GetResult();
-            ExecutePaladinsApiPlayerStats(client).GetAwaiter().GetResult();
-
-            Console.WriteLine("Finished");
-            Console.ReadKey();
-        }
-        
         private static async Task ExecutePaladinsApiDataStats(IPaladinsApiClient client)
         {
             // Example contacting the API and getting a raw response from the client
@@ -46,12 +31,12 @@
         {
             // Example fetching a player and his match history
 
-            var player = await client.GetPlayerAsync("bugzy");
+            Player player = await client.GetPlayerAsync("bugzy");
             Console.WriteLine($"{player.Name}, matches played: {player.Wins + player.Losses}");
 
             Console.WriteLine("Last matches:");
             var matchHistory = await client.GetMatchHistoryAsync(player.Id);
-            foreach (var match in matchHistory.Take(5))
+            foreach (MatchHistory match in matchHistory.Take(5))
                 Console.WriteLine($"{match.Match}: {match.Champion} ({match.WinStatus})");
         }
 
@@ -62,7 +47,7 @@
             // To reduce response times the HiRez API introduces time slices to fetch matches from a specific queue
             // An hour is divided into 6 parts (00, 10, 20, 30, 40, 50)
 
-            var date = DateTime.UtcNow.AddDays(-1);
+            DateTime date = DateTime.UtcNow.AddDays(-1);
             var hourSpan = new TimeSpan(12, 0, 0);
             var matchCount = 0;
 
@@ -79,6 +64,27 @@
             Console.WriteLine($"Found {queueDataWholeHour.Count} matches in queue for {hourSpan}");
 
             Debug.Assert(queueDataWholeHour.Count == matchCount);
+        }
+
+        private static void Main()
+        {
+            Console.WriteLine("Executing...");
+
+            var retryPolicy = new RetryPolicy<HiRezApiRetryStrategy>(new ExponentialBackoffRetryStrategy());
+            var timestampProvider = new DateTimeUtcTimeStampProvider();
+            var fileSessionRepository = new JsonFileSessionRepository(Environment.CurrentDirectory, timestampProvider); // Session storage is optional
+            var credentials = new HiRezApiCredentials("YourDeveloperId", "YourAuthKey", timestampProvider,
+                new DefaultSessionProvider(timestampProvider, fileSessionRepository));
+
+            var client = new PaladinsApiClient(Platform.Pc, credentials);
+            client.SetRetryPolicy(retryPolicy);
+
+            ExecutePaladinsApiDataStats(client).GetAwaiter().GetResult();
+            ExecutePaladinsApiQueuedMatches(client).GetAwaiter().GetResult();
+            ExecutePaladinsApiPlayerStats(client).GetAwaiter().GetResult();
+
+            Console.WriteLine("Finished");
+            Console.ReadKey();
         }
     }
 }
