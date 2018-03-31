@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>HiRezApi.Paladins</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.1.1</Version>
     <Title>HiRez Paladins API</Title>
     <Authors>taskbit</Authors>
     <Owners>taskbit</Owners>
     <Company />
     <Description>.NET Standard Paladins API Library (Access data from the game Paladins)</Description>
-    <Copyright>Copyright 2017 (c) taskbit. All rights reserved.</Copyright>
+    <Copyright>Copyright 2018 (c) taskbit. All rights reserved.</Copyright>
     <RequireLicenseAcceptance>False</RequireLicenseAcceptance>
     <IncludeSymbols>True</IncludeSymbols>
     <IncludeBuildOutput>True</IncludeBuildOutput>
@@ -17,6 +17,8 @@
     <PackageProjectUrl>https://github.com/taskbit/HiRezApi</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/taskbit/HiRezApi/blob/master/LICENSE</PackageLicenseUrl>
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeAssets</TargetsForTfmSpecificBuildOutput>
+    <PackageReleaseNotes>- Added the possibility to reuse/share a session (e.g. store it in a file or database)
+- Updated dependencies</PackageReleaseNotes>
 
   </PropertyGroup>
 
