@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\HiRezApi.Common\HiRezApi.Common.csproj" />
     <ProjectReference Include="..\..\HiRezApi.Paladins\HiRezApi.Paladins.csproj" />
+    <ProjectReference Include="..\..\HiRezApi.RealmRoyale\HiRezApi.RealmRoyale.csproj" />
     <ProjectReference Include="..\..\HiRezApi.Smite\HiRezApi.Smite.csproj" />
   </ItemGroup>
 

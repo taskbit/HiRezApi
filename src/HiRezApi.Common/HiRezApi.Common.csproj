@@ -24,28 +24,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\Generated\Common\Models\Ability.cs" Link="Models\Ability.cs" />
     <Compile Include="..\Generated\Common\Models\BaseModel.cs" Link="Models\BaseModel.cs" />
     <Compile Include="..\Generated\Common\Models\DataUsed.cs" Link="Models\DataUsed.cs" />
-    <Compile Include="..\Generated\Common\Models\DemoDetails.cs" Link="Models\DemoDetails.cs" />
     <Compile Include="..\Generated\Common\Models\ErrorModel.cs" Link="Models\ErrorModel.cs" />
     <Compile Include="..\Generated\Common\Models\ErrorModelException.cs" Link="Models\ErrorModelException.cs" />
-    <Compile Include="..\Generated\Common\Models\EsportProLeagueDetails.cs" Link="Models\EsportProLeagueDetails.cs" />
-    <Compile Include="..\Generated\Common\Models\Friends.cs" Link="Models\Friends.cs" />
     <Compile Include="..\Generated\Common\Models\HirezServerStatus.cs" Link="Models\HirezServerStatus.cs" />
-    <Compile Include="..\Generated\Common\Models\Items.cs" Link="Models\Items.cs" />
-    <Compile Include="..\Generated\Common\Models\LeagueLeaderBoard.cs" Link="Models\LeagueLeaderBoard.cs" />
-    <Compile Include="..\Generated\Common\Models\MatchDetails.cs" Link="Models\MatchDetails.cs" />
-    <Compile Include="..\Generated\Common\Models\MatchDetailsBatch.cs" Link="Models\MatchDetailsBatch.cs" />
-    <Compile Include="..\Generated\Common\Models\MatchHistory.cs" Link="Models\MatchHistory.cs" />
-    <Compile Include="..\Generated\Common\Models\MatchIdsByQueue.cs" Link="Models\MatchIdsByQueue.cs" />
-    <Compile Include="..\Generated\Common\Models\MatchPlayerDetails.cs" Link="Models\MatchPlayerDetails.cs" />
     <Compile Include="..\Generated\Common\Models\PatchInfo.cs" Link="Models\PatchInfo.cs" />
-    <Compile Include="..\Generated\Common\Models\Player.cs" Link="Models\Player.cs" />
-    <Compile Include="..\Generated\Common\Models\PlayerAchievements.cs" Link="Models\PlayerAchievements.cs" />
-    <Compile Include="..\Generated\Common\Models\PlayerStatus.cs" Link="Models\PlayerStatus.cs" />
-    <Compile Include="..\Generated\Common\Models\QueueStats.cs" Link="Models\QueueStats.cs" />
-    <Compile Include="..\Generated\Common\Models\RankedConquest.cs" Link="Models\RankedConquest.cs" />
     <Compile Include="..\Generated\Common\Models\Session.cs" Link="Models\Session.cs" />
   </ItemGroup>
 

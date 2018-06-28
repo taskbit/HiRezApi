@@ -31,6 +31,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\Generated\Common\Models\Ability.cs" Link="Models\Ability.cs" />
+    <Compile Include="..\Generated\Common\Models\DemoDetails.cs" Link="Models\DemoDetails.cs" />
+    <Compile Include="..\Generated\Common\Models\EsportProLeagueDetails.cs" Link="Models\EsportProLeagueDetails.cs" />
+    <Compile Include="..\Generated\Common\Models\Friends.cs" Link="Models\Friends.cs" />
+    <Compile Include="..\Generated\Common\Models\Items.cs" Link="Models\Items.cs" />
+    <Compile Include="..\Generated\Common\Models\LeagueLeaderBoard.cs" Link="Models\LeagueLeaderBoard.cs" />
+    <Compile Include="..\Generated\Common\Models\MatchDetails.cs" Link="Models\MatchDetails.cs" />
+    <Compile Include="..\Generated\Common\Models\MatchDetailsBatch.cs" Link="Models\MatchDetailsBatch.cs" />
+    <Compile Include="..\Generated\Common\Models\MatchHistory.cs" Link="Models\MatchHistory.cs" />
+    <Compile Include="..\Generated\Common\Models\MatchIdsByQueue.cs" Link="Models\MatchIdsByQueue.cs" />
+    <Compile Include="..\Generated\Common\Models\MatchPlayerDetails.cs" Link="Models\MatchPlayerDetails.cs" />
+    <Compile Include="..\Generated\Common\Models\Player.cs" Link="Models\Player.cs" />
+    <Compile Include="..\Generated\Common\Models\PlayerAchievements.cs" Link="Models\PlayerAchievements.cs" />
+    <Compile Include="..\Generated\Common\Models\PlayerStatus.cs" Link="Models\PlayerStatus.cs" />
+    <Compile Include="..\Generated\Common\Models\QueueStats.cs" Link="Models\QueueStats.cs" />
+    <Compile Include="..\Generated\Common\Models\RankedConquest.cs" Link="Models\RankedConquest.cs" />
     <Compile Include="..\Generated\Paladins\IPaladinsApiClient.cs" Link="IPaladinsApiClient.cs" />
     <Compile Include="..\Generated\Paladins\Models\ChampionRanks.cs" Link="Models\ChampionRanks.cs" />
     <Compile Include="..\Generated\Paladins\Models\Champions.cs" Link="Models\Champions.cs" />

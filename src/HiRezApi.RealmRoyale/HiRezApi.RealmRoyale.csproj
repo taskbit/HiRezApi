@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Generated\RealmRoyale\IRealmRoyaleApiClient.cs" Link="IRealmRoyaleApiClient.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Leaderboard.cs" Link="Models\Leaderboard.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\LeaderboardDetails.cs" Link="Models\LeaderboardDetails.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Match.cs" Link="Models\Match.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\MatchDetails.cs" Link="Models\MatchDetails.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\MatchIdsByQueue.cs" Link="Models\MatchIdsByQueue.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Placement.cs" Link="Models\Placement.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Player.cs" Link="Models\Player.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\PlayerMatchHistory.cs" Link="Models\PlayerMatchHistory.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\PlayerStats.cs" Link="Models\PlayerStats.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Team.cs" Link="Models\Team.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\TeamPlayer.cs" Link="Models\TeamPlayer.cs" />
+    <Compile Include="..\Generated\RealmRoyale\RealmRoyaleApiClient.cs" Link="RealmRoyaleApiClient.cs" />
+    <Compile Include="..\Generated\RealmRoyale\RealmRoyaleApiClientExtensions.cs" Link="RealmRoyaleApiClientExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HiRezApi.Common\HiRezApi.Common.csproj" />
+  </ItemGroup>
+
+</Project>
