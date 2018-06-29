@@ -5,7 +5,6 @@
 namespace HiRezApi.RealmRoyale.Models
 {
     using System;
-    using System.Linq;
     using HiRezApi.Common.Models;
 
     public partial class Leaderboard : BaseModel
@@ -13,7 +12,10 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the Leaderboard class.
         /// </summary>
-        public Leaderboard() { }
+        public Leaderboard()
+        {
+            CustomInit();
+        }
 
         /// <summary>
         /// Initializes a new instance of the Leaderboard class.
@@ -25,7 +27,13 @@ namespace HiRezApi.RealmRoyale.Models
             LeaderboardDetails = leaderboardDetails;
             Queue = queue;
             QueueId = queueId;
+            CustomInit();
         }
+
+        /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
+        /// </summary>
+        partial void CustomInit();
 
         /// <summary>
         /// </summary>

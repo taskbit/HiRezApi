@@ -5,7 +5,6 @@
 namespace HiRezApi.RealmRoyale.Models
 {
     using System;
-    using System.Linq;
     using HiRezApi.Common.Models;
 
     public partial class MatchDetails : BaseModel
@@ -13,7 +12,10 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the MatchDetails class.
         /// </summary>
-        public MatchDetails() { }
+        public MatchDetails()
+        {
+            CustomInit();
+        }
 
         /// <summary>
         /// Initializes a new instance of the MatchDetails class.
@@ -28,7 +30,13 @@ namespace HiRezApi.RealmRoyale.Models
             MatchQueueName = matchQueueName;
             Region = region;
             Teams = teams;
+            CustomInit();
         }
+
+        /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
+        /// </summary>
+        partial void CustomInit();
 
         /// <summary>
         /// </summary>

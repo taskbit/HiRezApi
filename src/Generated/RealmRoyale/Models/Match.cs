@@ -7,8 +7,7 @@
 namespace HiRezApi.RealmRoyale.Models
 {
     using System;
-    using Newtonsoft.Json;
-    using System.Linq;
+    using HiRezApi.Common.Models;
 
     public partial class Match
     {
@@ -53,6 +52,7 @@ namespace HiRezApi.RealmRoyale.Models
             TimeInMatchMinutes = timeInMatchMinutes;
             TimeInMatchSecs = timeInMatchSecs;
             WardsMinesPlaced = wardsMinesPlaced;
+            CustomInit();
         }
 
         /// <summary>
@@ -62,142 +62,142 @@ namespace HiRezApi.RealmRoyale.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "assists")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "assists")]
         public int Assists { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "class_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "class_id")]
         public int ClassId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "class_name")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "class_name")]
         public string ClassName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "creeps")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "creeps")]
         public int Creeps { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "damage")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "damage")]
         public int Damage { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "damage_done_in_hand")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "damage_done_in_hand")]
         public int DamageDoneInHand { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "damage_mitigated")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "damage_mitigated")]
         public int DamageMitigated { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "damage_taken")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "damage_taken")]
         public int DamageTaken { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "deaths")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "deaths")]
         public int Deaths { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "gold")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "gold")]
         public int Gold { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "healing_bot")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "healing_bot")]
         public double HealingBot { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "healing_player")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "healing_player")]
         public double HealingPlayer { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "healing_player_self")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "healing_player_self")]
         public double HealingPlayerSelf { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "killing_spree_max")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "killing_spree_max")]
         public int KillingSpreeMax { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "kills")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "kills")]
         public int Kills { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "map_game")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "map_game")]
         public string MapGame { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "match_datetime")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "match_datetime")]
         public DateTime DateTime { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "match_duration_secs")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "match_duration_secs")]
         public int DurationSecs { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "match_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "match_id")]
         public int Id { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "match_queue_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "match_queue_id")]
         public int QueueId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "match_queue_name")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "match_queue_name")]
         public string QueueName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "placement")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "placement")]
         public int Placement { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "player_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "player_id")]
         public int PlayerId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "region")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "region")]
         public string Region { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "team_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "team_id")]
         public int TeamId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "time_in_match_minutes")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "time_in_match_minutes")]
         public int TimeInMatchMinutes { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "time_in_match_secs")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "time_in_match_secs")]
         public int TimeInMatchSecs { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "wards_mines_placed")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "wards_mines_placed")]
         public int WardsMinesPlaced { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 
 namespace HiRezApi.RealmRoyale.Models
 {
-    using System.Linq;
+    using System;
     using HiRezApi.Common.Models;
 
     public partial class MatchIdsByQueue : BaseModel
@@ -12,7 +12,10 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the MatchIdsByQueue class.
         /// </summary>
-        public MatchIdsByQueue() { }
+        public MatchIdsByQueue()
+        {
+            CustomInit();
+        }
 
         /// <summary>
         /// Initializes a new instance of the MatchIdsByQueue class.
@@ -22,7 +25,13 @@ namespace HiRezApi.RealmRoyale.Models
         {
             ActiveFlag = activeFlag;
             Match = match;
+            CustomInit();
         }
+
+        /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
+        /// </summary>
+        partial void CustomInit();
 
         /// <summary>
         /// </summary>

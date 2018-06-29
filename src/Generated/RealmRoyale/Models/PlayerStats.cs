@@ -5,7 +5,6 @@
 namespace HiRezApi.RealmRoyale.Models
 {
     using System;
-    using System.Linq;
     using HiRezApi.Common.Models;
 
     public partial class PlayerStats : BaseModel
@@ -13,179 +12,42 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the PlayerStats class.
         /// </summary>
-        public PlayerStats() { }
+        public PlayerStats()
+        {
+            CustomInit();
+        }
 
         /// <summary>
         /// Initializes a new instance of the PlayerStats class.
         /// </summary>
-        public PlayerStats(string retMsg, int assists = default(int), int averagePlacement = default(int), int classId = default(int), string className = default(string), int damage = default(int), int damageMitigated = default(int), int damageTaken = default(int), int deaths = default(int), int durationSecs = default(int), int earnedTokens = default(int), int earnedXp = default(int), int gamesPlayed = default(int), double healingPlayer = default(double), double healingPlayerSelf = default(double), int killingSpreeMax = default(int), int killsBot = default(int), int killsPlayer = default(int), int losses = default(int), int matchQueueId = default(int), string matchQueueName = default(string), DateTime placementWindowEnd = default(DateTime), DateTime placementWindowStart = default(DateTime), System.Collections.Generic.IList<Placement> placements = default(System.Collections.Generic.IList<Placement>), int playerId = default(int), System.Collections.Generic.IList<PlayerStats> queueClassStats = default(System.Collections.Generic.IList<PlayerStats>), int wardsMinesPlaced = default(int), int wins = default(int))
+        public PlayerStats(string retMsg, int id = default(int), Stats aggregatedStats = default(Stats), System.Collections.Generic.IList<QueueClassStats> queueClassStats = default(System.Collections.Generic.IList<QueueClassStats>))
             : base(retMsg)
         {
-            Assists = assists;
-            AveragePlacement = averagePlacement;
-            ClassId = classId;
-            ClassName = className;
-            Damage = damage;
-            DamageMitigated = damageMitigated;
-            DamageTaken = damageTaken;
-            Deaths = deaths;
-            DurationSecs = durationSecs;
-            EarnedTokens = earnedTokens;
-            EarnedXp = earnedXp;
-            GamesPlayed = gamesPlayed;
-            HealingPlayer = healingPlayer;
-            HealingPlayerSelf = healingPlayerSelf;
-            KillingSpreeMax = killingSpreeMax;
-            KillsBot = killsBot;
-            KillsPlayer = killsPlayer;
-            Losses = losses;
-            MatchQueueId = matchQueueId;
-            MatchQueueName = matchQueueName;
-            PlacementWindowEnd = placementWindowEnd;
-            PlacementWindowStart = placementWindowStart;
-            Placements = placements;
-            PlayerId = playerId;
+            Id = id;
+            AggregateStats = aggregatedStats;
             QueueClassStats = queueClassStats;
-            WardsMinesPlaced = wardsMinesPlaced;
-            Wins = wins;
+            CustomInit();
         }
 
         /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "assists")]
-        public int Assists { get; set; }
+        partial void CustomInit();
 
         /// <summary>
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "average_placement")]
-        public int AveragePlacement { get; set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
+        public int Id { get; set; }
 
         /// <summary>
         /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "class_id")]
-        public int ClassId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "class_name")]
-        public string ClassName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "damage")]
-        public int Damage { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "damage_mitigated")]
-        public int DamageMitigated { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "damage_taken")]
-        public int DamageTaken { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "deaths")]
-        public int Deaths { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "duration_secs")]
-        public int DurationSecs { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "earned_tokens")]
-        public int EarnedTokens { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "earned_xp")]
-        public int EarnedXp { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "games_played")]
-        public int GamesPlayed { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "healing_player")]
-        public double HealingPlayer { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "healing_player_self")]
-        public double HealingPlayerSelf { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "killing_spree_max")]
-        public int KillingSpreeMax { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "kills_bot")]
-        public int KillsBot { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "kills_player")]
-        public int KillsPlayer { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "losses")]
-        public int Losses { get; set; }
-
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "match_queue_id")]
-        public int MatchQueueId { get; set; }
-
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "match_queue_name")]
-        public string MatchQueueName { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "placement_window_end")]
-        public DateTime PlacementWindowEnd { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "placement_window_start")]
-        public DateTime PlacementWindowStart { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "placements")]
-        public System.Collections.Generic.IList<Placement> Placements { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "player_id")]
-        public int PlayerId { get; set; }
+        [Newtonsoft.Json.JsonProperty(PropertyName = "aggregate_stats")]
+        public Stats AggregateStats { get; set; }
 
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "queue_class_stats")]
-        public System.Collections.Generic.IList<PlayerStats> QueueClassStats { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "wards_mines_placed")]
-        public int WardsMinesPlaced { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty(PropertyName = "wins")]
-        public int Wins { get; set; }
+        public System.Collections.Generic.IList<QueueClassStats> QueueClassStats { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -196,16 +58,6 @@ namespace HiRezApi.RealmRoyale.Models
         public override void Validate()
         {
             base.Validate();
-            if (this.QueueClassStats != null)
-            {
-                foreach (var element1 in this.QueueClassStats)
-                {
-                    if (element1 != null)
-                    {
-                        element1.Validate();
-                    }
-                }
-            }
         }
     }
 }

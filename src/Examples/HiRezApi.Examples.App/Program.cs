@@ -8,7 +8,7 @@
         {
             Console.WriteLine("Starting examples...");
 
-            //Paladins.Execute();
+            Paladins.Execute();
             RealmRoyale.Execute();
 
             Console.WriteLine("Finished examples");

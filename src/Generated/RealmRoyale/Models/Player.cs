@@ -4,7 +4,7 @@
 
 namespace HiRezApi.RealmRoyale.Models
 {
-    using System.Linq;
+    using System;
     using HiRezApi.Common.Models;
 
     public partial class Player : BaseModel
@@ -12,7 +12,10 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the Player class.
         /// </summary>
-        public Player() { }
+        public Player()
+        {
+            CustomInit();
+        }
 
         /// <summary>
         /// Initializes a new instance of the Player class.
@@ -27,7 +30,13 @@ namespace HiRezApi.RealmRoyale.Models
             Name = name;
             Region = region;
             SteamId = steamId;
+            CustomInit();
         }
+
+        /// <summary>
+        /// An initialization method that performs custom operations like setting defaults
+        /// </summary>
+        partial void CustomInit();
 
         /// <summary>
         /// </summary>

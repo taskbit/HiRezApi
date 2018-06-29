@@ -55,6 +55,12 @@
             Player player = await client.GetPlayerAsync("overpowered", PlayerIdentifier.HiRez);
             Console.WriteLine($"{player.Name}, level: {player.Level}");
 
+            PlayerStats playerStats = await client.GetPlayerStatsAsync(player.Id);
+            Console.WriteLine($"Wins: {playerStats.AggregateStats.Wins}, Losses: {playerStats.AggregateStats.Losses}");
+
+            foreach (var queueStat in playerStats.QueueClassStats)
+                Console.WriteLine($"{queueStat.ClassName}/{queueStat.MatchQueueName} Wins: {queueStat.Stats.Wins}, Losses: {queueStat.Stats.Losses}");
+
             Console.WriteLine("Last matches:");
             var matchHistory = await client.GetPlayerMatchHistoryAsync(player.Id);
             foreach (Match match in matchHistory.Matches.Take(5))

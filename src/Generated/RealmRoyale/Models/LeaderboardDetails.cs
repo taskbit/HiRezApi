@@ -6,8 +6,8 @@
 
 namespace HiRezApi.RealmRoyale.Models
 {
-    using Newtonsoft.Json;
-    using System.Linq;
+    using System;
+    using HiRezApi.Common.Models;
 
     public partial class LeaderboardDetails
     {
@@ -41,37 +41,37 @@ namespace HiRezApi.RealmRoyale.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "matches")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "matches")]
         public int Matches { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "player_id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "player_id")]
         public int PlayerId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "player_name")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "player_name")]
         public string PlayerName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "rank")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "rank")]
         public int Rank { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "team_avg_placement")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "team_avg_placement")]
         public double TeamAvgPlacement { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "team_wins")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "team_wins")]
         public int TeamWins { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "win_percentage")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "win_percentage")]
         public double WinPercentage { get; set; }
     }
 }

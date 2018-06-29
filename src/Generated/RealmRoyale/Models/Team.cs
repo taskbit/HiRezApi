@@ -6,8 +6,8 @@
 
 namespace HiRezApi.RealmRoyale.Models
 {
-    using Newtonsoft.Json;
-    using System.Linq;
+    using System;
+    using HiRezApi.Common.Models;
 
     public partial class Team
     {
@@ -36,12 +36,12 @@ namespace HiRezApi.RealmRoyale.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "placement")]
+        [Newtonsoft.Json.JsonProperty(PropertyName = "placement")]
         public int Placement { get; set; }
 
         /// <summary>

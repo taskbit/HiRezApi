@@ -16,6 +16,8 @@
     <Compile Include="..\Generated\RealmRoyale\Models\Player.cs" Link="Models\Player.cs" />
     <Compile Include="..\Generated\RealmRoyale\Models\PlayerMatchHistory.cs" Link="Models\PlayerMatchHistory.cs" />
     <Compile Include="..\Generated\RealmRoyale\Models\PlayerStats.cs" Link="Models\PlayerStats.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\QueueClassStats.cs" Link="Models\QueueClassStats.cs" />
+    <Compile Include="..\Generated\RealmRoyale\Models\Stats.cs" Link="Models\Stats.cs" />
     <Compile Include="..\Generated\RealmRoyale\Models\Team.cs" Link="Models\Team.cs" />
     <Compile Include="..\Generated\RealmRoyale\Models\TeamPlayer.cs" Link="Models\TeamPlayer.cs" />
     <Compile Include="..\Generated\RealmRoyale\RealmRoyaleApiClient.cs" Link="RealmRoyaleApiClient.cs" />
