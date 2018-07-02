@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,16 @@
     <PackageLicenseUrl>https://github.com/taskbit/HiRezApi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageReleaseNotes>- Initial release</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/taskbit/HiRezApi</PackageProjectUrl>
+    <PackageId>HiRezApi.RealmRoyale</PackageId>
+    <Version>1.0.0</Version>
+    <Title>HiRez Realm Royale API</Title>
+    <Owners>taskbit</Owners>
+    <Company />
+    <RequireLicenseAcceptance>False</RequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <IncludeBuildOutput>True</IncludeBuildOutput>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeAssets</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,8 +47,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HiRezApi.Common\HiRezApi.Common.csproj">
-      <Private>true</Private>
+      <PackageDirectory>Lib</PackageDirectory>
     </ProjectReference>
   </ItemGroup>
+
+  <Target Name="IncludeAssets">
+    <ItemGroup>
+      <BuildOutputInPackage Include="$(OutputPath)HiRezApi.Common.dll" />
+    </ItemGroup>
+  </Target>
 
 </Project>
