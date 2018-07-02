@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <Authors>taskbit</Authors>
+    <Description>.NET Standard Realm Royale API Library (Access data from the game Realm Royale)</Description>
+    <Copyright>Copyright 2018 (c) taskbit. All rights reserved.</Copyright>
+    <PackageLicenseUrl>https://github.com/taskbit/HiRezApi/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>- Initial release</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,11 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.11" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HiRezApi.Common\HiRezApi.Common.csproj" />
+    <ProjectReference Include="..\HiRezApi.Common\HiRezApi.Common.csproj">
+      <Private>true</Private>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
