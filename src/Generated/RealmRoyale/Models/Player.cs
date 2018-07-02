@@ -20,7 +20,7 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// Initializes a new instance of the Player class.
         /// </summary>
-        public Player(string retMsg, string createdDatetime = default(string), int id = default(int), string lastLoginDatetime = default(string), int level = default(int), string name = default(string), string region = default(string), long steamId = default(int))
+        public Player(string retMsg, DateTime createdDatetime = default(DateTime), int id = default(int), DateTime lastLoginDatetime = default(DateTime), int level = default(int), string name = default(string), string region = default(string), long steamId = default(int))
             : base(retMsg)
         {
             CreatedDatetime = createdDatetime;
@@ -41,7 +41,7 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "created_datetime")]
-        public string CreatedDatetime { get; set; }
+        public DateTime CreatedDatetime { get; set; }
 
         /// <summary>
         /// </summary>
@@ -51,7 +51,7 @@ namespace HiRezApi.RealmRoyale.Models
         /// <summary>
         /// </summary>
         [Newtonsoft.Json.JsonProperty(PropertyName = "last_login_datetime")]
-        public string LastLoginDatetime { get; set; }
+        public DateTime LastLoginDatetime { get; set; }
 
         /// <summary>
         /// </summary>
