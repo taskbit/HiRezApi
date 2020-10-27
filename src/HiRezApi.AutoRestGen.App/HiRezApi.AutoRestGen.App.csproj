@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02FA9461-71FB-490E-B55E-9BB0DF3C0EAE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HiRezApi.AutoRestGen.App</RootNamespace>
+    <AssemblyName>HiRezApi.AutoRestGen.App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiResponseDownloader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwaggerGenerator.cs" />
+    <Compile Include="SwaggerModels.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\packages\AutoRest.0.17.3\tools\AutoRest.json">
+      <Link>AutoRest\AutoRest.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HiRezApi.Common\HiRezApi.Common.csproj">
+      <Project>{5922b7de-ab4a-4eff-9a8c-e8ae8c76732f}</Project>
+      <Name>HiRezApi.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HiRezApi.Paladins\HiRezApi.Paladins.csproj">
+      <Project>{33a8d9d0-db6d-400d-9b8c-959ba9cc5a6a}</Project>
+      <Name>HiRezApi.Paladins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.AzureResourceSchema.dll">
+      <Link>AutoRest\AutoRest.AzureResourceSchema.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.CompositeSwagger.dll">
+      <Link>AutoRest\AutoRest.CompositeSwagger.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Core.dll">
+      <Link>AutoRest\AutoRest.Core.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.CSharp.Azure.dll">
+      <Link>AutoRest\AutoRest.CSharp.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.CSharp.Azure.Fluent.dll">
+      <Link>AutoRest\AutoRest.CSharp.Azure.Fluent.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.CSharp.dll">
+      <Link>AutoRest\AutoRest.CSharp.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.exe">
+      <Link>AutoRest\AutoRest.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Extensions.Azure.dll">
+      <Link>AutoRest\AutoRest.Extensions.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Extensions.dll">
+      <Link>AutoRest\AutoRest.Extensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Go.dll">
+      <Link>AutoRest\AutoRest.Go.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Java.Azure.dll">
+      <Link>AutoRest\AutoRest.Java.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Java.Azure.Fluent.dll">
+      <Link>AutoRest\AutoRest.Java.Azure.Fluent.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Java.dll">
+      <Link>AutoRest\AutoRest.Java.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.NodeJS.Azure.dll">
+      <Link>AutoRest\AutoRest.NodeJS.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.NodeJS.dll">
+      <Link>AutoRest\AutoRest.NodeJS.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Python.Azure.dll">
+      <Link>AutoRest\AutoRest.Python.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Python.dll">
+      <Link>AutoRest\AutoRest.Python.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Ruby.Azure.dll">
+      <Link>AutoRest\AutoRest.Ruby.Azure.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Ruby.dll">
+      <Link>AutoRest\AutoRest.Ruby.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\AutoRest.Swagger.dll">
+      <Link>AutoRest\AutoRest.Swagger.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\Newtonsoft.Json.dll">
+      <Link>AutoRest\Newtonsoft.Json.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\AutoRest.0.17.3\tools\YamlDotNet.dll">
+      <Link>AutoRest\YamlDotNet.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
